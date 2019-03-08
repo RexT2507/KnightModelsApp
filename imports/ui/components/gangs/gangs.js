@@ -1,26 +1,26 @@
-import './listes.html';
+import './gangs.html';
 
 import { Template } from 'meteor/templating';
 
-import { Listes } from '../../../api/listes.js';
+import { Gangs } from '../../../api/gangs.js';
 
-Template.listes.helpers({
+Template.gangs.helpers({
 
-    listes(){
-        return Listes.find({});
+    gangs(){
+        return Gangs.find({});
     },
 })
 
-Template.listes.events({
+Template.gangs.events({
 
-    'submit .new-liste'(event)
+    'submit .new-gang'(event)
     {
         event.preventDefault();
 
         const target = event.target;
         const text = target.text.value;
 
-        Listes.insert({
+        Gangs.insert({
             text,
             createdAt: new Date(),
         });
