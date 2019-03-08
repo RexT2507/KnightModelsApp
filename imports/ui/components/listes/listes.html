@@ -76,7 +76,9 @@
         <span onclick="newElement()" class="addBtn">Ajouter</span>
     </div>
       
-    <ul id="myUL">
-
+    <ul id="myUL" class="{{#if checked}}checked{{/if}}">
+        <span class="text">{{text}}</span>
     </ul>
+
+    
 </template>
