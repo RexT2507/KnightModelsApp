@@ -1,22 +1,12 @@
 import { Template } from 'meteor/templating';
 
+import { Personnages } from '../../../api/personnage';
+
 import './personnages.html';
 
 Template.personnages.helpers
 ({
-  personnages: function () 
-  {
-    return Session.get('personnages');
-  }
+    personnages: function(){
+        return Personnages.find({});
+    },
 });
-
-Template.personnages.rendered = function() 
-{
-  Session.setDefault
-  ('personnages', 
-    [
-      {nom: "Batman", cout: "500"},
-      {nom: "Joker", cout: "420"},
-    ]
-  );
-};
