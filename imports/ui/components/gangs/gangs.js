@@ -3,13 +3,16 @@ import './gangs.html';
 import { Template } from 'meteor/templating';
 
 import { Gangs } from '../../../api/gangs/gangs.js';
+import { Personnages } from '../../../api/personnage/personnage';
 
 Template.gangs.helpers
 ({
-    gangs()
-    {
+    gangs() {
         return Gangs.find({});
     },
+    personnages() {
+        return Personnages.find({});
+    }
 })
 
 Template.gangs.events
