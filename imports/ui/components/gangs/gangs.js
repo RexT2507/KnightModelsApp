@@ -4,14 +4,16 @@ import { Template } from 'meteor/templating';
 
 import { Gangs } from '../../../api/gangs.js';
 
-Template.gangs.helpers({
-
-    gangs(){
+Template.gangs.helpers
+({
+    gangs()
+    {
         return Gangs.find({});
     },
 })
 
-Template.gangs.events({
+Template.gangs.events
+({
 
     'submit .new-gang'(event)
     {
@@ -27,5 +29,17 @@ Template.gangs.events({
 
         target.text.value = '';
 
+    },
+});
+
+Template.gangs.events
+({
+    'click .delete'() 
+    {
+        Meteor.call('gangs.remove', this._id);
+    },
+    'click .toggle-favoris'() 
+    {
+        Meteor.call('gangs.setFavoris', this._id, !this.favoris);
     },
 });
