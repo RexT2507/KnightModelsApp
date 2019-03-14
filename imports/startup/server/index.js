@@ -1,4 +1,6 @@
-// Import server startup through a single index entry point
 
-import '../../api/personnage.js';
+// Vérification des data de la collection Personnages
+import './fixtures.js';
 
+
+import './register-api.js';
