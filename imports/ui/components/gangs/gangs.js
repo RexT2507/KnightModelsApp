@@ -18,20 +18,27 @@ Template.gangs.helpers
 Template.gangs.events
 ({
 
-    'submit .new-gang'(event)
+    'click .addBtn'(event)
     {
         event.preventDefault();
 
-        const target = event.target;
-        const text = target.text.value;
+        var nom;
+        var rep;
 
-        Gangs.insert({
-            text,
-            createdAt: new Date(),
-        });
-
-        target.text.value = '';
-
+        if (document.getElementById("nomGangInput").value == ""){
+            document.getElementsByClassName("err").innerHTML = "nom maquant ";
+            console.log("nom maquant");
+        }
+        else {
+            nom = document.getElementById("nomGangInput").value
+        }
+        if (document.getElementById("repInput").value == ""){
+            rep = 350;
+        }
+        else{
+            rep = document.getElementById("repInput").value;
+        }
+        Meteor.call('gangs.insert', nom, rep, []);
     },
 });
 

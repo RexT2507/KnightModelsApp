@@ -2,10 +2,13 @@
 
     <div id="myDIV" class="header">
         <h2>Création de mon gang</h2>
-        <input type="text" id="myInput" placeholder="Séléctionnez un personnage...">
-        <span onclick="newElement()" class="addBtn">Ajouter</span>
+        <input type="text" id="nomGangInput" placeholder="entrez le nom de votre gang">
+        <input type="text" id="repInput" placeholder="350">
+        <span class="addBtn">Creer gang</span>
+
+        <div class="err"></div>
     </div>
-      
+
     <ul id="myUL" class="{{#if checked}}checked{{/if}}">
         <span class="text">{{text}}</span>
     </ul>
