@@ -9,12 +9,21 @@
 
 <template name="cardPersonnages">
 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{img}}" alt="Image de {{alias}}">
+    <div class="card">
+        <img src="{{img}}">
         <div class="card-body">
-            <h5 class="card-title">{{alias}}</h5>
+            <div class="card-title">
+                <a href="#" class="toggle-info btn">
+                    <span class="left"></span>
+                    <span class="right"></span>
+                </a>
+                <h2>{{alias}}</h2>
+            </div>
             <p class="card-text"></p>
-            <a href="#" class="btn btn-primary">Ajouter à mon gang</a>
+            <div class="card-actions">
+                <a href="#" class="btn">Ajouter à mon gang</a>
+            </div>
         </div>
     </div>
+
 </template>
