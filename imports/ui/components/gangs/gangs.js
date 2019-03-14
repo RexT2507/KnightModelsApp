@@ -2,7 +2,7 @@ import './gangs.html';
 
 import { Template } from 'meteor/templating';
 
-import { Gangs } from '../../../api/gangs.js';
+import { Gangs } from '../../../api/gangs/gangs.js';
 
 Template.gangs.helpers
 ({

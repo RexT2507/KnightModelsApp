@@ -2,7 +2,7 @@ import './listes.html';
 
 import { Template } from 'meteor/templating';
 
-import { Listes } from '../../../api/listes.js';
+import { Listes } from '../../../api/listes/listes.js';
 
 Template.listes.helpers({
 

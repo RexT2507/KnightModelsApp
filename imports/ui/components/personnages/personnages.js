@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
-import { Personnages } from '../../../api/personnage';
+import { Personnages } from '../../../api/personnage/personnage.js';
 
 import './personnages.html';
 
