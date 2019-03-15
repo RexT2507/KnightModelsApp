@@ -5,21 +5,42 @@
 </template>
 
 <template name="profilPersonnage">
-    <div class="profilCard" style="width:100%">
-            <div class="persoInfo">
-                <img src="{{img}}" alt="Lights" style="width:100%">
-                <div class="persoName">{{alias}}</div>
-            </div>
-            <div class="persoCaract">
-                <div class="w3-third w3-center">
-                <h3>MON</h3>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-8 col-xs-12 col-md-offset-3 col-sm-offset-2">
+                <div class="cardi">
+                    <div class="image">
+                        <img src="{{img}}" style="width:100%">
+                    </div>
+                    <div class="text">
+        
+                        <h3>{{alias}}</h3>
+                        <p>{{categori}}bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                            bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                        </p>
+        
+                    </div>
                 </div>
-                <div class="w3-third w3-center">
-                <h3>TUE</h3>
-                </div>
-                <div class="w3-third w3-center w3-margin-bottom">
-                <h3>WED</h3>
                 </div>
             </div>
     </div>
+</template>
+
+<template name="cardPersonnages">
+
+        <div class="card">
+            <img src="{{img}}">
+            <div class="card-body">
+                <div class="card-title">
+                    <h2>{{alias}}</h2>
+                </div>
+                <div class="card-description">
+                    <p>Faction:</p><a>{{categori}}</a>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn">Ajouter à mon gang</a>
+                </div>
+            </div>
+        </div>
+    
 </template>
