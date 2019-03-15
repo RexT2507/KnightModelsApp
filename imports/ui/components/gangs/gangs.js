@@ -13,7 +13,7 @@ Template.gangs.helpers
     personnages() {
         return Personnages.find({});
     }
-})
+});
 
 Template.gangs.events
 ({
@@ -25,20 +25,22 @@ Template.gangs.events
         var nom;
         var rep;
 
+        var erreur = document.createElement('span');
+
         if (document.getElementById("nomGangInput").value == ""){
-            document.getElementsByClassName("err").innerHTML = "nom maquant ";
-            console.log("nom maquant");
+            erreur.innerHTML = "nom maquant ";
+            document.getElementsByClassName("err").appendChild(erreur);
         }
         else {
-            nom = document.getElementById("nomGangInput").value
+            nom = document.getElementById("nomGangInput").value;
+            if (document.getElementById("repInput").value == ""){
+                rep = 350;
+            }
+            else{
+                rep = document.getElementById("repInput").value;
+                Meteor.call('gangs.insert', nom, rep, []);
+            }
         }
-        if (document.getElementById("repInput").value == ""){
-            rep = 350;
-        }
-        else{
-            rep = document.getElementById("repInput").value;
-        }
-        Meteor.call('gangs.insert', nom, rep, []);
     },
 });
 

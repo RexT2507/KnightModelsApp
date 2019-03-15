@@ -34,6 +34,9 @@ Meteor.methods({
             createdAt: new Date(),
             user: Meteor.userId()
         })
+    },
+    'gangs.addPersonnages'(){
+
     }
 });
 
