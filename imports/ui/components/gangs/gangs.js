@@ -1,4 +1,5 @@
 import './gangs.html';
+import '../personnage/personnage';
 
 import { Template } from 'meteor/templating';
 
