@@ -1,21 +1,25 @@
 <template name="personnage">
-       
-<div class="profilCard" style="width:100%">
-    <div class="persoInfo">
-        <img src="{{img}}" alt="Lights" style="width:100%">
-        <div class="persoName">{{alias}}</div>
+        {{#each personnage}}
+            {{> profilPersonnage}}
+        {{/each}}
+</template>
+
+<template name="profilPersonnage">
+    <div class="profilCard" style="width:100%">
+            <div class="persoInfo">
+                <img src="{{img}}" alt="Lights" style="width:100%">
+                <div class="persoName">{{alias}}</div>
+            </div>
+            <div class="persoCaract">
+                <div class="w3-third w3-center">
+                <h3>MON</h3>
+                </div>
+                <div class="w3-third w3-center">
+                <h3>TUE</h3>
+                </div>
+                <div class="w3-third w3-center w3-margin-bottom">
+                <h3>WED</h3>
+                </div>
+            </div>
     </div>
-    <div class="persoCaract">
-        <div class="w3-third w3-center">
-        <h3>MON</h3>
-        </div>
-        <div class="w3-third w3-center">
-        <h3>TUE</h3>
-        </div>
-        <div class="w3-third w3-center w3-margin-bottom">
-        <h3>WED</h3>
-        </div>
-    </div>
-</div>
-          
 </template>
