@@ -34,6 +34,12 @@ Meteor.methods({
             createdAt: new Date(),
             user: Meteor.userId()
         })
+    },
+    'gangs.addPersonnages'(){
+        if (! Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
+        Gangs.update
     }
 });
 
