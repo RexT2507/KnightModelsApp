@@ -27,19 +27,18 @@ Template.gangs.events
 
         var erreur = document.createElement('span');
 
-        if (document.getElementById("nomGangInput").value == ""){
+        if (document.getElementById("nomGangInput").value === ""){
+            console.log("connardman");
             erreur.innerHTML = "nom maquant ";
             document.getElementsByClassName("err").appendChild(erreur);
         }
         else {
             nom = document.getElementById("nomGangInput").value;
-            if (document.getElementById("repInput").value == ""){
+            if (document.getElementById("repInput").value === ""){
                 rep = 350;
             }
-            else{
-                rep = document.getElementById("repInput").value;
-                Meteor.call('gangs.insert', nom, rep, []);
-            }
+            rep = document.getElementById("repInput").value;
+            Meteor.call('gangs.insert', nom, rep, []);
         }
     },
 });
