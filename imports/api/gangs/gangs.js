@@ -16,6 +16,11 @@ class Gang {
         }
         return listPersoDetail;
     }
+    getPersonnagesId(){
+        if (this.listPersonnages) {
+            return this.listPersonnages;
+        }
+    }
     getUser(){
         if (this.user) {
             return this.Meteor.users.findOne({_id: this.user});
@@ -47,8 +52,29 @@ Meteor.methods({
         if (Gangs.findOne({_id: idGang}).getUser()._id !== idGang){
             throw new Meteor.Error('not-user-gang');
         }
-        Gangs.update({
 
+        var listeIdPerso = Gangs.findOne({_id: idGang});
+        listeIdPerso.push(idPersonnage)
+        Gangs.update({
+            _id: idGang
+        },{
+            listPersonnages: listeIdPerso
+        })
+    },
+    'gangs.deletePersonnages'(idGang, idPosPersonnage){
+        if (! Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
+        if (Gangs.findOne({_id: idGang}).getUser()._id !== idGang){
+            throw new Meteor.Error('not-user-gang');
+        }
+
+        var listeIdPerso = Gangs.findOne({_id: idGang});
+        listeIdPerso.splice(idPosPersonnage, 1);
+        Gangs.update({
+            _id: idGang
+        },{
+            listPersonnages: listeIdPerso
         })
     }
 });
