@@ -16,6 +16,11 @@ class Gang {
         }
         return listPersoDetail;
     }
+    getUser(){
+        if (this.user) {
+            return this.Meteor.users.findOne({_id: this.user});
+        }
+    }
 }
 
 export const Gangs = new Mongo.Collection('gangs', {
@@ -35,11 +40,16 @@ Meteor.methods({
             user: Meteor.userId()
         })
     },
-    'gangs.addPersonnages'(){
+    'gangs.addPersonnages'(idGang, idPersonnage){
         if (! Meteor.userId()) {
             throw new Meteor.Error('not-authorized');
         }
-        Gangs.update
+        if (Gangs.findOne({_id: idGang}).getUser()._id !== idGang){
+            throw new Meteor.Error('not-user-gang');
+        }
+        Gangs.update({
+
+        })
     }
 });
 
