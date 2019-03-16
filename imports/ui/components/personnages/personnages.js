@@ -7,7 +7,7 @@ import '../personnage/personnage.js';
 
 Template.personnages.onCreated(function () {
     Meteor.subscribe('personnages');
-})
+});
 Template.personnages.helpers
 ({
     personnages(){
