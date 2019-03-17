@@ -15,7 +15,7 @@ Template.gangs.onCreated(function () {
 Template.gangs.helpers
 ({
     nomGang() {
-        console.log(Gangs.find({_id: Session.get('idGang')}));
+        console.log(Gangs.find({}));
         return Gangs.find({_id: Session.get('idGang')});
     },
     personnages() {
