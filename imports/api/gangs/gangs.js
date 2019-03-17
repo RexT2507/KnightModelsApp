@@ -1,10 +1,11 @@
 import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
+import {assignIn} from "lodash";
 
 
 class Gang {
     constructor(doc) {
-        _.extend(this, doc);
+        assignIn(this, doc);
     }
 
     getPersonnage(){
@@ -26,13 +27,17 @@ class Gang {
             return this.Meteor.users.findOne({_id: this.user});
         }
     }
+    getUserId(){
+        if (this.user) {
+            return this.user;
+        }
+    }
     getNom(){
         if (this.nom){
             return this.nom;
         }
     }
 }
-
 export const Gangs = new Mongo.Collection('gangs', {
     transform: (doc) => new Gang(doc)
 });
@@ -56,32 +61,41 @@ Meteor.methods({
         if (! Meteor.userId()) {
             throw new Meteor.Error('not-authorized');
         }
-        if (Gangs.findOne({_id: idGang}).getUser()._id !== idGang){
+        if (Gangs.findOne({_id: idGang}).user !== Meteor.userId()){
             throw new Meteor.Error('not-user-gang');
         }
 
         var listeIdPerso = Gangs.findOne({_id: idGang});
-        listeIdPerso.push(idPersonnage);
+        listeIdPerso.listPersonnages.push(idPersonnage);
         Gangs.update({
             _id: idGang
         },{
-            listPersonnages: listeIdPerso
+
+            nom: listeIdPerso.nom,
+            nbrRep: listeIdPerso.nbrRep,
+            listPersonnages: listeIdPerso.listPersonnages,
+            createdAt: listeIdPerso.createdAt,
+            user: listeIdPerso.user
         })
     },
     'gangs.deletePersonnages'(idGang, idPosPersonnage){
         if (! Meteor.userId()) {
             throw new Meteor.Error('not-authorized');
         }
-        if (Gangs.findOne({_id: idGang}).getUser()._id !== idGang){
+        if (Gangs.findOne({_id: idGang}).user !== Meteor.userId()){
             throw new Meteor.Error('not-user-gang');
         }
 
         var listeIdPerso = Gangs.findOne({_id: idGang});
-        listeIdPerso.splice(idPosPersonnage, 1);
+        listeIdPerso.listPersonnages.splice(idPosPersonnage, 1);
         Gangs.update({
             _id: idGang
         },{
-            listPersonnages: listeIdPerso
+            nom: listeIdPerso.nom,
+            nbrRep: listeIdPerso.nbrRep,
+            listPersonnages: listeIdPerso.listPersonnages,
+            createdAt: listeIdPerso.createdAt,
+            user: listeIdPerso.user
         })
     }
 });
