@@ -1,14 +1,22 @@
 import './gangs.html';
+import '../personnage/personnage';
 
 import { Template } from 'meteor/templating';
 
 import { Gangs } from '../../../api/gangs/gangs.js';
 import { Personnages } from '../../../api/personnage/personnage';
+import { Session } from 'meteor/session'
+
+Template.gangs.onCreated(function () {
+    Meteor.subscribe('gangs');
+    Meteor.subscribe('personnages');
+});
 
 Template.gangs.helpers
 ({
-    gangs() {
-        return Gangs.find({});
+    nomGang() {
+        console.log(Gangs.find({}));
+        return Gangs.find({_id: Session.get('idGang')});
     },
     personnages() {
         return Personnages.find({});
@@ -34,23 +42,17 @@ Template.gangs.events
         }
         else {
             nom = document.getElementById("nomGangInput").value;
-            if (document.getElementById("repInput").value === ""){
+            if (document.getElementById("repInput").value === "") {
                 rep = 350;
             }
-            rep = document.getElementById("repInput").value;
-            Meteor.call('gangs.insert', nom, rep, []);
+            else{
+                rep = document.getElementById("repInput").value;
+            }
+            Meteor.call('gangs.insert', nom, rep, [], (error, result) => {
+                if (error)
+                    throw error;
+                else
+                    Session.set('gangId', result);});
         }
-    },
-});
-
-Template.gangs.events
-({
-    'click .delete'() 
-    {
-        Meteor.call('gangs.remove', this._id);
-    },
-    'click .toggle-favoris'() 
-    {
-        Meteor.call('gangs.setFavoris', this._id, !this.favoris);
     },
 });

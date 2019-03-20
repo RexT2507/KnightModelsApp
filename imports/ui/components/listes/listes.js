@@ -1,31 +1,17 @@
 import './listes.html';
 
 import { Template } from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
+import { Gangs } from '../../../api/gangs/gangs.js';
 
-import { Listes } from '../../../api/listes/listes.js';
+Template.listes.onCreated(function () {
+    Meteor.subscribe('gangs');
+});
 
 Template.listes.helpers({
 
     listes(){
-        return Listes.find({});
-    },
-})
-
-Template.listes.events({
-
-    'submit .new-liste'(event)
-    {
-        event.preventDefault();
-
-        const target = event.target;
-        const text = target.text.value;
-
-        Listes.insert({
-            text,
-            createdAt: new Date(),
-        });
-
-        target.text.value = '';
-
+        console.log(Gangs.find({}));
+        return Gangs.find({user: Meteor.userId()});
     },
 });

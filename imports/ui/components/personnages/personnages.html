@@ -2,7 +2,7 @@
     <h3>La liste des personnages:</h3>
     <ul>
         {{#each personnages}}
-            <li><i>{{alias}}</i> de valeur {{cout}}</li>
+            {{> profilPersonnage}}
         {{/each}}
     </ul>
 </template>
