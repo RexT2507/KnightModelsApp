@@ -1,18 +1,70 @@
 <template name="profilPersonnage">
     <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-8 col-xs-12 col-md-offset-3 col-sm-offset-2">
                 <div class="cardi">
                     <div class="image">
-                        <img src="{{img}}" style="width:100%">
+                        <img src="{{baniere}}" style="width:100%">
                     </div>
                     <div class="text">
+
+                        <div class="imgProfil">
+                            <img class="imgProfil" src="{{profilImg}}" style="width:100%">
+                        </div>
+
+                        <div id="information">
+
+                            <h3>Alias: {{alias}}</h3>
+                            <p>Rank: {{categori}}</p>
+                            <p>Frunding: {{funding}}</p>
         
-                        <h3>{{alias}}</h3>
-                        <p>{{categori}}</p>
+                        </div>
+
+
+
+                        <div id="comptence">
+                            <ul>
+                                <ul>
+                                    <a>
+                                        <span>Strength</span>
+                                        <p>{{strength}}</p>
+                                    </a>
+                                </ul>
+                                <ul>
+                                    <a>
+                                        <span>Mouvement</span>
+                                        <p>{{movement}}</p>
+                                    </a>
+                                </ul>
+                                <ul>
+                                    <a>
+                                        <span>Attack</span>
+                                        <p>{{attack}}</p>
+                                    </a>
+                                </ul>
+                                <ul>
+                                    <a>
+                                        <span>Defense</span>
+                                        <p>{{defense}}</p>
+                                    </a>
+                                </ul>
+                                <ul>
+                                    <a>
+                                        <span>Special</span>
+                                        <p>{{special}}</p>
+                                    </a>
+                                </ul>
+                                <ul>
+                                    <a>
+                                        <span>Endurance</span>
+                                        <p>{{endurance}}</p>
+                                    </a>
+                                </ul>
+                                
+                            </ul>
+                        </div>
         
                     </div>
-                </div>
+
                 </div>
             </div>
     </div>
