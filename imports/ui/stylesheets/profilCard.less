@@ -5,6 +5,12 @@
     margin: 0 300px;
 }
 
+.row
+{
+    width: 300px;
+    
+}
+
 .image {
     height: 200px;
     overflow: hidden;
@@ -17,6 +23,7 @@
     position: relative;
     margin-bottom: 50px;
     transition: all .2s ease-in-out;
+    width: 270%;
   }
   
   .cardi:hover {
@@ -34,3 +41,119 @@
 .text p {
     margin-bottom: 0px;
 }
+
+#information
+{
+    padding-bottom: 20px;
+}
+
+#information p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.imgProfil{
+    float: right;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+#comptence {
+  background: #FFE333;
+  width: auto;
+}
+#comptence ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  zoom: 1;
+}
+#comptence ul:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#comptence ul ul {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+#comptence.align-right ul ul {
+  float: right;
+}
+#comptence.align-center ul {
+  text-align: center;
+}
+#comptence ul ul a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 15px 25px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  position: relative;
+  -webkit-transition: color .25s;
+  -moz-transition: color .25s;
+  -ms-transition: color .25s;
+  -o-transition: color .25s;
+  transition: color .25s;
+}
+#comptence ul ul a:hover {
+  color: #333333;
+}
+#comptence ul ul a:hover:before {
+  width: 100%;
+}
+#comptence ul ul a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -3px;
+  top: 19px;
+  height: 6px;
+  width: 6px;
+  background: black;
+  opacity: .5;
+}
+
+#comptence ul ul a p{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+  #comptence ul ul {
+    float: none;
+    display: block;
+  }
+  #comptence ul ul a {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid #fb998c;
+  }
+  #comptence ul ul.last > a,
+  #comptence ul ul:last-child > a {
+    border: 0;
+  }
+  #comptence ul ul a:after {
+    display: none;
+  }
+  #comptence ul ul a:before {
+    display: none;
+  }
+}
+
