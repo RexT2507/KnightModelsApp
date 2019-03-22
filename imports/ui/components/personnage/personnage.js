@@ -1,7 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
-import { Gangs } from '../../../api/gangs/gangs.js';
-import { Session } from 'meteor/session'
+import { Session } from 'meteor/session';
 
 import './personnage.html';
 import {Personnages} from "../../../api/personnage/personnage";
@@ -22,3 +21,4 @@ Template.cardPersonnage.events({
        Meteor.call('gangs.addPersonnages', Session.get('gangId'),event.target.name)
    }
 });
+

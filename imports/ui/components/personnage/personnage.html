@@ -72,19 +72,28 @@
 
 <template name="cardPersonnage">
 
-        <div class="card">
-            <img src="{{img}}">
-            <div class="card-body">
-                <div class="card-title">
-                    <h2>{{alias}}</h2>
-                </div>
-                <div class="card-description">
-                    <p>Faction:</p><a>{{categori}}</a>
-                </div>
-                <div class="card-actions">
-                    <a class="btn" name="{{_id}}">Ajouter à mon gang</a>
-                </div>
+    <div class="card">
+        <img src="{{img}}">
+        <div class="card-body">
+            <div class="card-title">
+                <h2>{{alias}}</h2>
+            </div>
+            <div class="card-description">
+                <p>Faction:</p><a>{{categori}}</a>
+            </div>
+            <div class="card-actions">
+                <a class="btn" name="{{_id}}">Ajouter à mon gang</a>
             </div>
         </div>
+    </div>
     
+</template>
+
+<template name="filterMenu">
+    <div class="btnFilterContainer">
+        <h3 class="titleFilter">Filtrer par catégorie: </h3>
+        <a class="btn">Tous</a>
+        <a class="btn">Joker</a>
+        <a class="btn">The Brave And The Bold</a>
+    </div>
 </template>

@@ -1,5 +1,6 @@
 <template name="personnages">
-    <h3>La liste des personnages:</h3>
+    <h1>La liste des personnages:</h1>
+    {{> filterMenu}}
     <ul>
         {{#each personnages}}
             {{> profilPersonnage}}
