@@ -10,6 +10,7 @@ import '../../ui/pages/not-found/not-found.js';
 import '../../ui/pages/personnages/personnages.js';
 import '../../ui/pages/listes/listes.js';
 import '../../ui/pages/gangs/gangs.js';
+import '../../ui/pages/footer/footer.js';
 
 // Set up all routes in the app
 FlowRouter.route('/', {
@@ -52,5 +53,14 @@ FlowRouter.route('/gangs',
   action() 
   {
     BlazeLayout.render('App_body', { main: 'App_gangs' });
+  },
+});
+
+// Route du module footer
+FlowRouter.route('/footer',{
+  name: 'App.footer',
+  action()
+  {
+    BlazeLayout.render('App_body', { main: 'App_footer '});
   },
 });
