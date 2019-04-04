@@ -22,3 +22,7 @@ Template.cardPersonnage.events({
    }
 });
 
+Template.filterMenu.events
+({
+    
+});
